@@ -5,6 +5,7 @@
 #include "common/config.h"
 #include "common/logging/log.h"
 #include "common/path_util.h"
+#include "trp.h"
 #include "core/file_format/trp.h"
 
 static void DecryptEFSM(std::span<u8, 16> trophyKey, std::span<u8, 16> NPcommID,
@@ -130,6 +131,7 @@ bool TRP::Extract(const std::filesystem::path& trophyPath, const std::string tit
                         return false;
                     }
                     file.Read(ESFM);
+                    crypto.decryptEFSM(user_key, np_comm_id, esfmIv, ESFM, XML); //
                     DecryptEFSM(user_key, np_comm_id, esfmIv, ESFM, XML); // decrypt
                     removePadding(XML);
                     std::string xml_name = entry.entry_name;
