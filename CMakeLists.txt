@@ -741,6 +741,9 @@ set(CORE src/core/aerolib/stubs.cpp
          src/core/aerolib/aerolib.h
          src/core/address_space.cpp
          src/core/address_space.h
+		 src/core/crypto/crypto.cpp
+         src/core/crypto/crypto.h
+         src/core/crypto/keys.h
          src/core/devices/base_device.cpp
          src/core/devices/base_device.h
          src/core/devices/ioccom.h
@@ -758,6 +761,10 @@ set(CORE src/core/aerolib/stubs.cpp
          src/core/devices/srandom_device.cpp
          src/core/devices/srandom_device.h
          src/core/file_format/pfs.h
+		 src/core/file_format/pkg.cpp
+         src/core/file_format/pkg.h
+         src/core/file_format/pkg_type.cpp
+         src/core/file_format/pkg_type.h
          src/core/file_format/psf.cpp
          src/core/file_format/psf.h
          src/core/file_format/playgo_chunk.cpp
@@ -1037,7 +1044,7 @@ if(ENABLE_QT_GUI)
 qt_add_resources(RESOURCE_FILES src/shadps4.qrc)
 
 if (ENABLE_UPDATER)
-    set(UPDATER src/qt_gui/check_update.cpp
+    set(UPDATER i/check_update.cpp
                 src/qt_gui/check_update.h
     )
 endif()
@@ -1071,6 +1078,8 @@ set(QT_GUI src/qt_gui/about_dialog.cpp
            src/qt_gui/game_install_dialog.cpp
            src/qt_gui/game_install_dialog.h
            src/qt_gui/trophy_viewer.cpp
+		   src/qt_gui/pkg_viewer.cpp
+           src/qt_gui/pkg_viewer.h
            src/qt_gui/trophy_viewer.h
            src/qt_gui/elf_viewer.cpp
            src/qt_gui/elf_viewer.h
